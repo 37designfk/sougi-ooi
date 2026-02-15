@@ -1,0 +1,139 @@
+@import "tailwindcss";
+
+@theme {
+  --color-navy: #1a2744;
+  --color-navy-light: #2a3a5c;
+  --color-navy-dark: #111b30;
+  --color-gold: #c9a84c;
+  --color-gold-light: #d4b86a;
+  --color-gold-dark: #b08f3a;
+  --color-warm-gray: #f5f3ef;
+  --color-warm-gray-dark: #e8e4dd;
+  --font-sans: "Noto Sans JP", "游ゴシック体", "Yu Gothic", YuGothic, "ヒラギノ角ゴ Pro", "Hiragino Kaku Gothic Pro", "メイリオ", Meiryo, sans-serif;
+}
+
+/* Base styles */
+html {
+  scroll-behavior: smooth;
+  font-feature-settings: "palt";
+}
+
+body {
+  font-family: var(--font-sans);
+  color: #333;
+  line-height: 1.8;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Section spacing */
+.section-padding {
+  padding-top: 5rem;
+  padding-bottom: 5rem;
+}
+
+@media (max-width: 768px) {
+  .section-padding {
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+  }
+}
+
+/* Gold gradient for accents */
+.gold-gradient {
+  background: linear-gradient(135deg, #c9a84c, #d4b86a);
+}
+
+/* CTA button animation */
+.cta-btn {
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15);
+}
+
+.cta-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* FAQ accordion */
+.faq-item .faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.35s ease, padding 0.35s ease;
+}
+
+.faq-item.open .faq-answer {
+  max-height: 500px;
+}
+
+.faq-item .faq-toggle-icon {
+  transition: transform 0.3s ease;
+}
+
+.faq-item.open .faq-toggle-icon {
+  transform: rotate(180deg);
+}
+
+/* Floating phone button */
+.floating-phone {
+  position: fixed;
+  bottom: 1rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 50;
+  display: none;
+  animation: floatPulse 2s infinite;
+}
+
+@media (max-width: 768px) {
+  .floating-phone {
+    display: flex;
+  }
+}
+
+@keyframes floatPulse {
+  0%, 100% {
+    box-shadow: 0 4px 20px rgba(201, 168, 76, 0.4);
+  }
+  50% {
+    box-shadow: 0 4px 30px rgba(201, 168, 76, 0.7);
+  }
+}
+
+/* Step timeline connector */
+.timeline-step::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: -2rem;
+  width: 2px;
+  height: 2rem;
+  background: #c9a84c;
+  transform: translateX(-50%);
+}
+
+.timeline-step:last-child::after {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .timeline-step::after {
+    left: 1.25rem;
+    bottom: -1.5rem;
+    height: 1.5rem;
+  }
+}
+
+/* Comparison table highlight */
+.highlight-col {
+  background: linear-gradient(180deg, rgba(201, 168, 76, 0.08), rgba(201, 168, 76, 0.03));
+}
+
+/* Placeholder image style */
+.placeholder-img {
+  background: linear-gradient(135deg, #e8e4dd 0%, #d5d0c8 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #999;
+  font-size: 0.875rem;
+}
